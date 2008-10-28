@@ -1,3 +1,3 @@
 == fancypath
 
-A gem that provides...
+Extensions to the Pathname library to model file IO in an OO mannor.
