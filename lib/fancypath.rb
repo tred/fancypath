@@ -1,4 +1,5 @@
-# latest at: http://gist.github.com/3810
+$:.unshift(File.dirname(__FILE__)) unless
+  $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
 require 'pathname'
 
