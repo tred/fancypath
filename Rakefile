@@ -6,7 +6,7 @@ require 'spec/rake/spectask'
 
 GEM = "fancypath"
 GEM_VERSION = "0.0.1"
-AUTHOR = ["Myles Byrne", "Chris Lloyd"]
+AUTHORS = ["Myles Byrne", "Chris Lloyd"]
 EMAIL = "myles@ducknewmedia.com"
 HOMEPAGE = "http://ducknewmedia.com/fancypath"
 SUMMARY = "Extensions for the Pathname library."
@@ -19,7 +19,7 @@ spec = Gem::Specification.new do |s|
   s.extra_rdoc_files = ['README.rdoc', 'LICENSE']
   s.summary = SUMMARY
   s.description = s.summary
-  s.author = AUTHOR
+  s.authors = AUTHORS
   s.email = EMAIL
   s.homepage = HOMEPAGE
   
