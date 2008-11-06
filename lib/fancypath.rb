@@ -4,12 +4,18 @@ class Pathname
   def to_path
     Fancypath.new(self)
   end
+
+  alias_method :to_fancypath, :to_path
+
 end
 
 class String
   def to_path
     Fancypath.new(self)
   end
+
+  alias_method :to_fancypath, :to_path
+
 end
 
 class Fancypath < Pathname
