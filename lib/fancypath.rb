@@ -16,6 +16,7 @@ class Fancypath < Pathname
   # methods are chainable and do what you think they do
   
   alias_method :exists?, :exist?
+  alias_method :rename_to, :rename
 
   def /(path)
     self.join(path).to_path
