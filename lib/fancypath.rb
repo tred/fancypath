@@ -46,10 +46,14 @@ class Fancypath < Pathname
     self
   end
   
-  def write(contents)
+  def write(contents, mode='wb')
     dirname.create
-    open('wb') { |f| f.write contents }
+    open(mode) { |f| f.write contents }
     self
+  end
+  
+  def append(contents)
+    write(contents,'a+')
   end
   
   def visible_children
