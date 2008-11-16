@@ -31,25 +31,25 @@ class Fancypath < Pathname
   # make file
   def touch
     FileUtils.touch self.to_s
-    self
+    self.to_path
   end
   
   # make dir
   def create
     mkpath unless exist?
-    self
+    self.to_path
   end
   
   # file or dir
   def remove
     directory? ? rmtree : delete if exist?
-    self
+    self.to_path
   end
   
   def write(contents, mode='wb')
     dirname.create
     open(mode) { |f| f.write contents }
-    self
+    self.to_path
   end
   
   def append(contents)
@@ -58,6 +58,14 @@ class Fancypath < Pathname
   
   def visible_children
     children.reject { |c| c.basename.to_s =~ /^\./ }
+  end
+  
+  def inspect
+    super.sub('Pathname','Fancypath')
+  end
+  
+  def to_path
+    self
   end
   
 end
