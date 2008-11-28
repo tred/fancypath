@@ -1,20 +1,22 @@
 require 'pathname'
 
 class Pathname
-  def to_path
+  
+  def to_fancypath
     Fancypath.new(self)
   end
 
-  alias_method :to_fancypath, :to_path
+  alias_method :to_path, :to_fancypath
 
 end
 
 class String
-  def to_path
+  
+  def to_fancypath
     Fancypath.new(self)
   end
 
-  alias_method :to_fancypath, :to_path
+  alias_method :to_path, :to_fancypath
 
 end
 
@@ -23,10 +25,12 @@ class Fancypath < Pathname
   
   alias_method :exists?, :exist?
   alias_method :rename_to, :rename
-
-  def /(path)
-    self.join(path).to_path
+  
+  def join(path)
+    super(path).to_path
   end
+  
+  alias_method :/, :join
 
   # make file
   def touch

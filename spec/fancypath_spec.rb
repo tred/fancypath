@@ -10,7 +10,7 @@ before do
 end
 after  { TMP_DIR.rmtree }
 
-describe '#/' do
+describe '#join', 'aliased to #/' do
   
   it('returns Fancypath') { (@dir/'somefile').class.should == Fancypath }  
   it('joins paths') { (@dir/'somefile').to_s.should =~ /\/somefile$/ }
