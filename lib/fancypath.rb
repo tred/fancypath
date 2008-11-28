@@ -44,6 +44,11 @@ class Fancypath < Pathname
     self.to_path
   end
   
+  def copy(dest)
+    FileUtils.cp(self, dest)
+    self
+  end
+  
   # file or dir
   def remove
     directory? ? rmtree : delete if exist?

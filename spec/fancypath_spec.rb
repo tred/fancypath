@@ -12,7 +12,7 @@ after  { TMP_DIR.rmtree }
 
 describe '#join', 'aliased to #/' do
   
-  it('returns Fancypath') { (@dir/'somefile').class.should == Fancypath }  
+  it('returns a Fancypath') { (@dir/'somefile').class.should == Fancypath }  
   it('joins paths') { (@dir/'somefile').to_s.should =~ /\/somefile$/ }
   
 end
@@ -47,6 +47,16 @@ describe '#write' do
   it('returns self') { @file.write('').should == @file }
   it('returns a Fancypath') { @file.write('').should be_instance_of(Fancypath) }
   it('writes contents to file') { @file.write('test').read.should == 'test' }
+  
+end
+
+describe '#copy' do
+  
+  before { @file.touch }
+  it('returns a Fancypath') { @file.copy(TMP_DIR/'foo').should be_instance_of(Fancypath) }
+  it('creates a new file') { @file.copy(TMP_DIR/'foo').should exist }
+  it('keeps the original') { @file.copy(TMP_DIR/'foo'); @file.should exist }
+  it('copies the contents') { @file.copy(TMP_DIR/'foo').read.should == @file.read }
   
 end
 
