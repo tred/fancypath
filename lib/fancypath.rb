@@ -65,8 +65,10 @@ class Fancypath < Pathname
     write(contents,'a+')
   end
   
-  def visible_children
-    children.reject { |c| c.basename.to_s =~ /^\./ }
+  alias_method :all_children, :children
+  
+  def children
+    super.reject { |c| c.basename.to_s =~ /^\./ }
   end
   
   def inspect
