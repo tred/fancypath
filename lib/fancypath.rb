@@ -63,6 +63,11 @@ class Fancypath < Pathname
   
   def append(contents)
     write(contents,'a+')
+    self
+  end
+  
+  def parent
+    super.to_path
   end
   
   alias_method :all_children, :children

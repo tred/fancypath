@@ -17,6 +17,13 @@ describe '#join', 'aliased to #/' do
   
 end
 
+describe '#parent' do
+  
+  it('returns parent') { @file.parent.should == TMP_DIR.to_path }
+  it('returns Fancypath') { @file.parent.should be_instance_of(Fancypath) }
+  
+end
+
 describe '#touch', 'file does not exist' do
   
   it('returns self') { @file.touch.should == @file }  
