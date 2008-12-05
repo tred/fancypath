@@ -38,11 +38,12 @@ class Fancypath < Pathname
     self.to_path
   end
   
-  # make dir
-  def create
+  def create_dir
     mkpath unless exist?
     self.to_path
   end
+  
+  alias_method :create, :create_dir
   
   def copy(dest)
     FileUtils.cp(self, dest)
