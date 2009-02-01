@@ -67,6 +67,11 @@ class Fancypath < Pathname
     self
   end
   
+  def move(dest)
+    self.rename(dest)
+    dest.to_path
+  end
+  
   def set_extension(ext)
     base = self.to_s[/^ (.+?) (\. ([^\.]+))? $/x, 1]
     self.class.new(base + '.' + ext)

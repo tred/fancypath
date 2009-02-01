@@ -83,6 +83,18 @@ describe '#set_extension' do
   
 end
 
+describe '#move' do
+  
+  example "destination has the file contents, source does not exist" do
+    @file.write('foo')
+    dest = TMP_DIR/'newfile'
+    @file.move( dest )
+    @file.should_not exist
+    dest.read.should == 'foo'
+  end
+  
+end
+
 end #/Fancypath
 
 describe "String#to_path" do
