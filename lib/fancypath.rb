@@ -67,6 +67,11 @@ class Fancypath < Pathname
     self
   end
   
+  def set_extension(ext)
+    base = self.to_s[/^ (.+?) (\. ([^\.]+))? $/x, 1]
+    self.class.new(base + '.' + ext)
+  end
+  
   def parent
     super.to_path
   end

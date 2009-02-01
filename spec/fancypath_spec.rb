@@ -67,6 +67,22 @@ describe '#copy' do
   
 end
 
+describe '#set_extension' do
+  
+  example "file without extension" do
+    Fancypath('/tmp/foo').set_extension('rb').should == Fancypath('/tmp/foo.rb')
+  end
+  
+  example "single extension" do
+    Fancypath('/tmp/foo.py').set_extension('rb').should == Fancypath('/tmp/foo.rb')
+  end
+  
+  example "multi extension" do
+    Fancypath('/tmp/foo.py.z').set_extension('rb').should == Fancypath('/tmp/foo.py.rb')
+  end
+  
+end
+
 end #/Fancypath
 
 describe "String#to_path" do
