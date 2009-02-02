@@ -76,6 +76,7 @@ class Fancypath < Pathname
   end
   
   def tail(bytes)
+    return self.read if self.size < bytes
     open('r') do |f|
       f.seek(-bytes, IO::SEEK_END)
       f.read
