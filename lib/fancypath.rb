@@ -74,6 +74,13 @@ class Fancypath < Pathname
     self.rename(dest)
     dest.to_path
   end
+  
+  def tail(bytes)
+    open('r') do |f|
+      f.seek(-bytes, IO::SEEK_END)
+      f.read
+    end
+  end
 
   alias_method :mv, :move
   
