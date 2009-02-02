@@ -50,12 +50,15 @@ class Fancypath < Pathname
     self
   end
   
+  alias_method :cp, :copy
+
   # file or dir
   def remove
     directory? ? rmtree : delete if exist?
     self.to_path
   end
   
+  alias_method :rm, :remove
   def write(contents, mode='wb')
     dirname.create
     open(mode) { |f| f.write contents }
@@ -71,6 +74,8 @@ class Fancypath < Pathname
     self.rename(dest)
     dest.to_path
   end
+
+  alias_method :mv, :move
   
   def set_extension(ext)
     base = self.to_s[/^ (.+?) (\. ([^\.]+))? $/x, 1]
