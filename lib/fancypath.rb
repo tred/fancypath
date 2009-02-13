@@ -93,6 +93,10 @@ class Fancypath < Pathname
     to_s[/^ (.+?) (\. ([^\.]+))? $/x, 1].to_path
   end
   
+  def has_extension?(ext)
+    !!(self.to_s =~ /\.#{ext}$/)
+  end
+  
   def parent
     super.to_path
   end

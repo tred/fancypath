@@ -95,6 +95,18 @@ describe '#move' do
   
 end
 
+describe '#has_extension?' do
+  
+  example do
+    Fancypath('/tmp/foo.bar').has_extension?('bar').should be_true
+  end
+  
+  example do
+    Fancypath('/tmp/foo.bar').has_extension?('foo').should be_false
+  end
+  
+end
+
 end #/Fancypath
 
 describe "String#to_path" do

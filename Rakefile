@@ -5,7 +5,7 @@ require 'date'
 require 'spec/rake/spectask'
 
 GEM = "fancypath"
-GEM_VERSION = "0.5.5"
+GEM_VERSION = "0.5.6"
 AUTHORS = ["Myles Byrne", "Chris Lloyd"]
 EMAIL = "myles@ducknewmedia.com"
 HOMEPAGE = "http://ducknewmedia.com/fancypath"
