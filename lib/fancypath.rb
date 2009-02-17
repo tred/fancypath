@@ -107,6 +107,14 @@ class Fancypath < Pathname
     super.reject { |c| c.basename.to_s =~ /^\./ }
   end
   
+  # only takes sym atm
+  def select(arg)
+    case arg
+    when Symbol ; Dir["#{self}/*.#{arg}"].map { |p| self.class.new(p) }
+    else ; Dir["#{self}/#{arg}"].map { |p| self.class.new(p) }
+    end
+  end
+  
   def inspect
     super.sub('Pathname','Fancypath')
   end

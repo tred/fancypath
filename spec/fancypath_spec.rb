@@ -107,6 +107,27 @@ describe '#has_extension?' do
   
 end
 
+describe '#select' do
+  
+  example 'with symbol' do
+    @dir.create_dir
+    %W(a.jpg b.jpg c.gif).each { |f| (@dir/f).touch }
+    
+    @dir.select(:jpg).should == [@dir/'a.jpg', @dir/'b.jpg']
+  end
+  
+  example 'with glob' do
+    @dir.create_dir
+    %W(a.jpg b.jpg c.gif).each { |f| (@dir/f).touch }
+    
+    @dir.select("*.jpg").should == [@dir/'a.jpg', @dir/'b.jpg']
+  end
+  
+  # todo: with regex
+  # todo: with block
+  
+end
+
 end #/Fancypath
 
 describe "String#to_path" do
