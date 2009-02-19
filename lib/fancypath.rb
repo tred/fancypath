@@ -88,6 +88,7 @@ class Fancypath < Pathname
   def set_extension(ext)
     "#{without_extension}.#{ext}".to_path
   end
+  alias_method :change_extension, :set_extension
   
   def without_extension
     to_s[/^ (.+?) (\. ([^\.]+))? $/x, 1].to_path
