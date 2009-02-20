@@ -5,7 +5,7 @@ require 'date'
 require 'spec/rake/spectask'
 
 GEM = "fancypath"
-GEM_VERSION = "0.5.7"
+GEM_VERSION = "0.5.8"
 AUTHORS = ["Myles Byrne", "Chris Lloyd"]
 EMAIL = "myles@ducknewmedia.com"
 HOMEPAGE = "http://ducknewmedia.com/fancypath"
@@ -38,7 +38,6 @@ Spec::Rake::SpecTask.new do |t|
   t.spec_files = FileList['spec/**/*_spec.rb']
   t.spec_opts = %w(-fs --color)
 end
-
 
 Rake::GemPackageTask.new(spec) do |pkg|
   pkg.gem_spec = spec
