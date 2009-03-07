@@ -35,12 +35,12 @@ class Fancypath < Pathname
   # make file
   def touch
     FileUtils.touch self.to_s
-    self.to_path
+    self
   end
   
   def create_dir
     mkpath unless exist?
-    self.to_path
+    self
   end
   
   alias_method :create, :create_dir
