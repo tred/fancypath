@@ -55,14 +55,14 @@ class Fancypath < Pathname
   # file or dir
   def remove
     directory? ? rmtree : delete if exist?
-    self.to_path
+    self
   end
   
   alias_method :rm, :remove
   def write(contents, mode='wb')
     dirname.create
     open(mode) { |f| f.write contents }
-    self.to_path
+    self
   end
   
   def append(contents)
@@ -109,8 +109,10 @@ class Fancypath < Pathname
   end
   
   # only takes sym atm
-  def select(arg)
-    case arg
+  def select(*args)
+    return args.map { |arg| select(arg) }.flatten.uniq if args.size > 1
+    
+    case arg = args.first
     when Symbol ; Dir["#{self}/*.#{arg}"].map { |p| self.class.new(p) }
     else ; Dir["#{self}/#{arg}"].map { |p| self.class.new(p) }
     end
