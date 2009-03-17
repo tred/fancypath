@@ -113,8 +113,12 @@ class Fancypath < Pathname
     return args.map { |arg| select(arg) }.flatten.uniq if args.size > 1
     
     case arg = args.first
-    when Symbol ; Dir["#{self}/*.#{arg}"].map { |p| self.class.new(p) }
-    else ; Dir["#{self}/#{arg}"].map { |p| self.class.new(p) }
+    when Symbol
+      Dir["#{self}/*.#{arg}"].map { |p| self.class.new(p) }
+    when Regexp 
+      children.select { |child| child.to_s =~ arg }
+    else
+      Dir["#{self}/#{arg}"].map { |p| self.class.new(p) }
     end
   end
   

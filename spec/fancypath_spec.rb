@@ -123,6 +123,13 @@ describe '#select' do
     @dir.select("*.jpg").should == [@dir/'a.jpg', @dir/'b.jpg']
   end
   
+  example 'with regex' do
+    @dir.create_dir
+    %W(a.jpg b.jpg c.gif 1.jpg).each { |f| (@dir/f).touch }
+    
+    @dir.select(/[^\d]\.(jpg|gif)$/).should == [@dir/'a.jpg', @dir/'b.jpg', @dir/'c.gif']
+  end
+  
   example 'with multiple args' do
     @dir.create_dir
     %W(a.jpg b.jpg c.gif).each { |f| (@dir/f).touch }
@@ -130,7 +137,6 @@ describe '#select' do
     @dir.select(:jpg, '*.gif').should == [@dir/'a.jpg', @dir/'b.jpg', @dir/'c.gif']
   end
   
-  # todo: with regex
   # todo: with block
   
 end
