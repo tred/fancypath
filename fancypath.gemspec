@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{fancypath}
-  s.version = "0.5.9"
+  s.version = "0.5.10"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Myles Byrne", "Chris Lloyd"]
   s.autorequire = %q{fancypath}
-  s.date = %q{2009-03-07}
+  s.date = %q{2009-03-17}
   s.description = %q{Extensions for the Pathname library.}
   s.email = %q{myles@ducknewmedia.com}
   s.extra_rdoc_files = ["README.rdoc", "LICENSE"]
