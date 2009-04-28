@@ -5,7 +5,7 @@ require 'date'
 require 'spec/rake/spectask'
 
 GEM = "fancypath"
-GEM_VERSION = "0.5.7"
+GEM_VERSION = "0.5.8"
 AUTHORS = ["Myles Byrne", "Chris Lloyd"]
 EMAIL = "myles@ducknewmedia.com"
 HOMEPAGE = "http://ducknewmedia.com/fancypath"
@@ -22,10 +22,10 @@ spec = Gem::Specification.new do |s|
   s.authors = AUTHORS
   s.email = EMAIL
   s.homepage = HOMEPAGE
-  
+
   # Uncomment this to add a dependency
   # s.add_dependency "foo"
-  
+
   s.require_path = 'lib'
   s.autorequire = GEM
   s.files = %w(LICENSE README.rdoc Rakefile) + Dir.glob("{lib,spec}/**/*")
