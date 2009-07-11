@@ -129,7 +129,11 @@ class Fancypath < Pathname
       Dir["#{self}/#{arg}"].map { |p| self.class.new(p) }
     end
   end
-
+  
+  def empty?
+    directory? ? children.size == 0 : self.size == 0
+  end
+  
   def inspect
     super.sub('Pathname','Fancypath')
   end

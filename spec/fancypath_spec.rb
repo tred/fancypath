@@ -141,6 +141,31 @@ describe '#select' do
 
 end
 
+describe '#empty?' do
+  
+  example 'with empty file' do
+    @file.touch
+    @file.empty?.should be_true
+  end
+  
+  example 'with non-empty file' do
+    @file.write 'foo'
+    @file.empty?.should be_false
+  end
+  
+  example 'with empty dir' do
+    @dir.create_dir
+    @dir.empty?.should be_true
+  end
+  
+  example 'with non-empty dir' do
+    @dir.create_dir
+    (@dir/'foo').touch
+    @dir.empty?.should be_false
+  end
+  
+end
+
 end #/Fancypath
 
 describe "String#to_path" do
