@@ -1,29 +1,18 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{fancypath}
-  s.version = "0.5.11"
-
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.name = 'fancypath'
+  s.rubyforge_project = 'fancypath'
+  s.version = "0.5.12"
+  
   s.authors = ["Myles Byrne", "Chris Lloyd"]
-  s.autorequire = %q{fancypath} 
-  s.date = %q{2009-07-12}
-  s.description = %q{Extensions for the Pathname library.}
-  s.email = %q{myles@ducknewmedia.com}
-  s.extra_rdoc_files = ["README.rdoc", "LICENSE"]
-  s.files = ["LICENSE", "README.rdoc", "Rakefile", "lib/fancypath.rb", "spec/fancypath_spec.rb", "spec/spec_helper.rb"]
-  s.homepage = %q{http://ducknewmedia.com/fancypath}
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.4}
-  s.summary = %q{Extensions for the Pathname library.}
+  s.email = "myles@myles.id.au"
+  s.homepage = "http://github.com/tred/fancypath/tree/master"
+  
+  s.summary = "Extensions for the Pathname library."
+  s.description = s.summary
 
-  if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
-    s.specification_version = 3
-
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-    else
-    end
-  else
-  end
+  s.has_rdoc = false
+  
+  s.files = %w(LICENSE README lib/fancypath.rb)
 end
